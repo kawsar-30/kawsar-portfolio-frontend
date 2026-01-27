@@ -13,7 +13,6 @@ export default function AdminSkills() {
   const [formData, setFormData] = useState({ name: '', category: '' })
   const [file, setFile] = useState(null)
 
-  // ১. ডাটা ফেচ করা (Project/Service স্টাইল)
   const fetchSkills = async () => {
     try {
       const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/skills`)
@@ -35,7 +34,7 @@ export default function AdminSkills() {
     })
   }
 
-  // ২. মডাল ওপেন লজিক
+  
   const openModal = (skill = null) => {
     if (skill) {
       setEditMode(true)
@@ -49,7 +48,7 @@ export default function AdminSkills() {
     setShowModal(true)
   }
 
-  // ৩. সাবমিট (FormData ব্যবহার করে - তোমার স্কিমা অনুযায়ী)
+  
   const handleSubmit = async (e) => {
     e.preventDefault()
     setLoading(true)
@@ -59,7 +58,7 @@ export default function AdminSkills() {
       data.append('category', formData.category)
       
       if (file) {
-        // তোমার ব্যাকএন্ডে upload.single('icon') আছে, তাই কী হবে 'icon'
+        
         data.append('icon', file) 
       }
 
@@ -113,7 +112,7 @@ export default function AdminSkills() {
         </button>
       </div>
 
-      {/* --- Table View (Project/Certification স্টাইল) --- */}
+   
       <div className="bg-[#0d121a] border border-white/5 overflow-x-auto">
         <table className="w-full text-left border-collapse min-w-[800px]">
           <thead className="bg-white/5 text-[9px] uppercase text-gray-500 border-b border-white/5">

@@ -16,10 +16,10 @@ export default function AdminLogin() {
       const result = await res.json()
 
       if (result.success) {
-        // এখানে নাম 'adminToken' করে দেওয়া হয়েছে যাতে Layout-এর সাথে মিলে যায়
+    
         localStorage.setItem('adminToken', result.data.token)
         alert('Access Granted!')
-        window.location.href = '/admin' // হার্ড রিডাইরেক্ট যাতে স্টেট পরিষ্কার হয়
+        window.location.href = '/admin' 
       } else {
         alert(result.message || 'Login Failed')
       }

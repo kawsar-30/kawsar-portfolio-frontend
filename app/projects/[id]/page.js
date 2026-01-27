@@ -5,7 +5,7 @@ import Navbar from '@/components/common/Navbar'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 
-// ফাইল টাইপ অনুযায়ী ভিউয়ার
+
 const MediaViewer = ({ item }) => {
   if (item.mediaType === 'pdf') {
     return <iframe src={item.url} className="w-full h-[500px] md:h-[800px] rounded-lg border border-white/10" title={item.originalName} />;
@@ -22,7 +22,7 @@ export default function ProjectDetail() {
 
   if (!project) return <div className="min-h-screen bg-[#0b0f14] flex items-center justify-center text-[#00f6ff] font-mono">LOADING_ENCRYPTED_DATA...</div>
 
-  // প্রথম ইমেজটিকে থাম্বনেইল হিসেবে ধরার জন্য
+
   const thumbnail = project.media?.find(m => m.mediaType === 'image')?.url;
 
   return (

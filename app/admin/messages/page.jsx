@@ -7,7 +7,7 @@ export default function AdminMessages() {
   const [messages, setMessages] = useState([])
   const [viewMsg, setViewMsg] = useState(null)
 
-  // ১. ডাটা ফেচ করা
+  
   const fetchMessages = async () => {
     const token = localStorage.getItem('adminToken')
     try {
@@ -31,26 +31,26 @@ export default function AdminMessages() {
     fetchMessages()
   }, [])
 
-  // ২. মেসেজ ওপেন এবং 'read' স্ট্যাটাস আপডেট (তোমার PUT /:id রাউটের সাথে কানেক্টেড)
+
   const handleOpenMessage = async (msg) => {
     setViewMsg(msg)
     
-    // যদি মেসেজ 'new' থাকে, তবেই ব্যাকএন্ডে রিকোয়েস্ট যাবে
+    
     if (msg.status === 'new') {
       try {
         const token = localStorage.getItem('adminToken')
         const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/messages/${msg._id}`, {
-          method: 'PUT', // তোমার ব্যাকএন্ডে router.put('/:id', updateMessage) আছে
+          method: 'PUT', 
           headers: { 
             'Authorization': `Bearer ${token}`,
             'Content-Type': 'application/json' 
           }
-          // তোমার কন্ট্রোলার সরাসরি $set: { status: 'read' } করছে, তাই বডিতে কিছু না পাঠালেও চলবে
+          
         })
 
         const result = await res.json()
         if (result.success) {
-          // লোকাল স্টেট আপডেট যাতে রিফ্রেশ করলে ডাটাবেস থেকে 'read' হয়েই আসে
+          
           setMessages(prev => 
             prev.map(m => m._id === msg._id ? { ...m, status: 'read' } : m)
           )
@@ -61,7 +61,7 @@ export default function AdminMessages() {
     }
   }
 
-  // ৩. ডিলিট করা
+ 
   const deleteMsg = async (id) => {
     if (!confirm('PERMANENTLY_DELETE_TRANSMISSION?')) return
     const token = localStorage.getItem('adminToken')

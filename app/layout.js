@@ -9,7 +9,7 @@ import './globals.css'
 export default function RootLayout({ children }) {
   const pathname = usePathname()
 
-  // --- ভিজিটর ট্র্যাকিং লজিক ---
+  
   useEffect(() => {
     const trackVisitor = async () => {
       try {
@@ -30,7 +30,7 @@ export default function RootLayout({ children }) {
      <head>
         <title>Kawsar | Cyber Security Analyst</title>
         <meta name="description" content="Portfolio of MD. KAWSAR HOSSAIN - Penetration Tester" />
-        {/* গোল করা লোগোটা public ফোল্ডারে রেখে এখানে নাম বদলে দিস */}
+        
         <link rel="icon" href="/favicon.png" type="image/png" />
       </head>
       <body className="bg-[#0b0f14]">

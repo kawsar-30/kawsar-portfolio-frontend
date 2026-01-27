@@ -12,7 +12,7 @@ export default function AdminDashboard() {
     services: []
   })
 
-  // ১. সব ডাটা একসাথে ফেচ করা (Dashboard Summary)
+  
   useEffect(() => {
     const fetchDashboardData = async () => {
       const token = localStorage.getItem('adminToken')
@@ -41,7 +41,7 @@ export default function AdminDashboard() {
     fetchDashboardData()
   }, [])
 
-  // ২. গ্রাফের ডাটা প্রসেসিং (লাস্ট ৭ দিনের ট্রাফিক সিমুলেশন বা রিয়াল ডাটা)
+  
   const visitorChartData = data.visitors.slice(0, 7).map((v, i) => ({
     name: `Node_${i + 1}`,
     hits: v.visits

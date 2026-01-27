@@ -18,11 +18,11 @@ import {
 export default function AdminLayout({ children }) {
   const [authorized, setAuthorized] = useState(false)
   const [unreadCount, setUnreadCount] = useState(0)
-  const [showLogoutConfirm, setShowLogoutConfirm] = useState(false) // কনফার্মেশন স্টেট
+  const [showLogoutConfirm, setShowLogoutConfirm] = useState(false) 
   const router = useRouter()
   const pathname = usePathname()
 
-  // ১. অথোরাইজেশন চেক
+
   useEffect(() => {
     const token = localStorage.getItem('adminToken')
     if (!token && pathname !== '/admin/login') {
@@ -32,7 +32,7 @@ export default function AdminLayout({ children }) {
     }
   }, [pathname, router])
 
-  // ২. আনরিড মেসেজ কাউন্ট ফেচ করা
+
   const fetchUnreadCount = async () => {
     const token = localStorage.getItem('adminToken')
     if (!token) return
@@ -56,7 +56,7 @@ export default function AdminLayout({ children }) {
     }
   }, [authorized, pathname])
 
-  // ৩. লগআউট লজিক
+  
   const handleLogout = () => {
     localStorage.removeItem('adminToken')
     window.location.href = '/admin/login'
@@ -65,7 +65,7 @@ export default function AdminLayout({ children }) {
   if (pathname === '/admin/login') return <>{children}</>
   if (!authorized) return <div className="bg-[#0b0f14] min-h-screen"></div>
 
-  // আইকন এবং মেনু কনফিগ
+  
   const menuItems = [
     { name: 'Dashboard', path: '/admin', icon: <LayoutDashboard size={18} /> },
     { name: 'Admins', path: '/admin/users', icon: <Users size={18} /> },

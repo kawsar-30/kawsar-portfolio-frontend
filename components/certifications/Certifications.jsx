@@ -111,7 +111,7 @@ export default function Certifications() {
                 </button>
 
                 <div className="relative border border-white/10 bg-black shadow-2xl">
-                  {/* media[0].url ব্যবহার করা হয়েছে স্কিমা অনুযায়ী */}
+                 
                   <img 
                     src={selectedCert.media?.[0]?.url || 'https://via.placeholder.com/1200x800?text=No+Image'} 
                     alt={selectedCert.title}

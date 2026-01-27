@@ -8,17 +8,17 @@ import Link from 'next/link'
 export default function Projects() {
   const dispatch = useDispatch();
   
-  // Redux থেকে ডাটা নেওয়া হচ্ছে
+  
   const { items, status } = useSelector((state) => state.projects);
 
-  // পেজ লোড হওয়ার সময় ডাটা ফেচ করা
+  
   useEffect(() => {
     if (status === 'idle') {
       dispatch(fetchProjects());
     }
   }, [status, dispatch]);
 
-  // যদি ডাটা লোড হতে থাকে
+ 
   if (status === 'loading') {
     return (
       <div className="bg-[#0b0f14] py-24 text-center font-mono text-[#00f6ff] animate-pulse">
@@ -45,9 +45,9 @@ export default function Projects() {
           </p>
         </div>
 
-        {/* Project Slide Grid - ডাটা এখন items থেকে ম্যাপ হচ্ছে */}
+        {/* Project Slide Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-10">
-          {items.slice(0, 4).map((project) => ( // হোমপেজে মাত্র ৪টি দেখানোর জন্য slice ইউজ করলাম
+          {items.slice(0, 4).map((project) => ( 
             <Link href={`/projects/${project._id}`} key={project._id} className="block">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}

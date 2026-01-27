@@ -10,7 +10,7 @@ export default function Services() {
   const { items, status } = useSelector((state) => state.services);
   const [mounted, setMounted] = useState(false);
 
-  // শুরুতে কতটি সার্ভিস দেখাবে
+
   const INITIAL_DISPLAY_COUNT = 4;
 
   useEffect(() => {
@@ -20,7 +20,7 @@ export default function Services() {
 
   if (!mounted) return null;
 
-  // শুধু প্রথম ৪টি সার্ভিস ফিল্টার করে নেওয়া
+  
   const displayedServices = items?.slice(0, INITIAL_DISPLAY_COUNT);
 
   return (
@@ -54,7 +54,7 @@ export default function Services() {
         {/* --- Services Grid --- */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
           {displayedServices && displayedServices.map((service, index) => {
-            // মিডিয়া অ্যারে থেকে প্রথম ইমেজ ইউআরএল খুঁজে বের করা
+           
             const iconUrl = service.media?.find(m => m.mediaType === 'image')?.url;
 
             return (

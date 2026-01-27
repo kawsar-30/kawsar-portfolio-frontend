@@ -11,7 +11,7 @@ const initialState = {
   socials: {
     github: "https://github.com/your-username",
     linkedin: "https://linkedin.com/in/your-username",
-    whatsapp: "https://wa.me/88017XXXXXXXX", // তোমার নম্বর বসাও
+    whatsapp: "https://wa.me/88017XXXXXXXX", 
   }
 };
 
@@ -19,7 +19,7 @@ const userSlice = createSlice({
   name: 'user',
   initialState,
   reducers: {
-    // এখানে ভবিষ্যতে ডাটা আপডেট করার ফাংশন চাইলে লিখতে পারো
+   
   }
 });
 

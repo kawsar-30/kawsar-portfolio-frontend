@@ -15,7 +15,7 @@ export default function CyberBackground() {
   ]
 
   useEffect(() => {
-    // ব্রাউজারে আসার পর রেন্ডম পজিশন সেট করা
+    
     const generated = hackerCommands.map(text => ({
       text,
       x: Math.random() * 100,
@@ -27,7 +27,7 @@ export default function CyberBackground() {
     setMounted(true)
   }, [])
 
-  // সার্ভারে রেন্ডার হবে না, তাই Hydration এরর আসবে না
+  
   if (!mounted) return null
 
   return (

@@ -7,7 +7,7 @@ import Link from 'next/link'
 
 export default function ServiceDetail() {
   const { id } = useParams()
-  // Redux থেকে এই নির্দিষ্ট সার্ভিসটি খুঁজে বের করা
+ 
   const service = useSelector((state) => state.services.items.find(s => s._id === id))
 
   if (!service) {
@@ -21,7 +21,7 @@ export default function ServiceDetail() {
   return (
     <>
       <Navbar />
-      {/* স্পেসের জন্য খালি ডিভ */}
+     
       <div className="h-24 w-full bg-[#0b0f14]"></div>
       
       <main className="min-h-screen bg-[#0b0f14] py-12 font-mono">

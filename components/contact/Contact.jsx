@@ -1,12 +1,12 @@
 'use client'
-import { useState } from 'react' // 🔥 State যোগ করা হয়েছে
+import { useState } from 'react' 
 import { motion } from 'framer-motion'
 import { Send } from 'lucide-react'
 
 export default function Contact() {
-  // ১. ফোর্ল ডাটা হ্যান্ডেল করার জন্য স্টেট
+  
   const [formData, setFormData] = useState({ name: '', email: '', message: '' })
-  const [status, setStatus] = useState('idle') // idle, sending, success, error
+  const [status, setStatus] = useState('idle') 
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -23,8 +23,8 @@ export default function Contact() {
 
       if (data.success) {
         setStatus('success')
-        setFormData({ name: '', email: '', message: '' }) // ফর্ম ক্লিয়ার
-        setTimeout(() => setStatus('idle'), 5000) // ৫ সেকেন্ড পর মেসেজ চলে যাবে
+        setFormData({ name: '', email: '', message: '' }) 
+        setTimeout(() => setStatus('idle'), 5000) 
       } else {
         setStatus('error')
       }

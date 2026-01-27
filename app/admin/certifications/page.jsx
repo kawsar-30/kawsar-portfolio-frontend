@@ -129,7 +129,7 @@ export default function AdminCertificates() {
         </button>
       </div>
 
-      {/* Table View (Service/Project স্টাইল) */}
+     
       <div className="bg-[#0d121a] border border-white/5 overflow-x-auto">
         <table className="w-full text-left border-collapse min-w-[900px]">
           <thead className="bg-white/5 text-[9px] uppercase text-gray-500 border-b border-white/5">

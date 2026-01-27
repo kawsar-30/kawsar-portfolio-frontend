@@ -9,7 +9,7 @@ export const fetchProjects = createAsyncThunk(
     try {
       const response = await fetch(`${BASE_URL}/projects`);
       const data = await response.json();
-      // তোমার API যদি { success: true, data: [...] } ফরম্যাটে পাঠায়
+     
       return data.success ? data.data : data; 
     } catch (error) {
       return rejectWithValue(error.message);
