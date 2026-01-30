@@ -29,19 +29,19 @@ export default function AdminServices() {
     })
   }
 
-  const toggleFeatured = async (service) => {
-    try {
-      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/services/${service._id}`, {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${localStorage.getItem('adminToken')}`
-        },
-        body: JSON.stringify({ featured: !service.featured })
-      })
-      if (res.ok) fetchServices()
-    } catch (err) { console.error("Toggle failed", err) }
-  }
+ const toggleFeatured = async (service) => {
+  try {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/services/${service._id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${localStorage.getItem('adminToken')}`
+      },
+      body: JSON.stringify({ featured: !service.featured }) // Toggle logic
+    });
+    if (res.ok) fetchServices();
+  } catch (err) { console.error("Toggle failed", err); }
+};
 
   const openModal = (service = null) => {
     if (service) {
