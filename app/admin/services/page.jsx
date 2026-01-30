@@ -58,25 +58,44 @@ export default function AdminServices() {
     setShowModal(true)
   }
 
-  const handleSubmit = async (e) => {
-    e.preventDefault()
-    setLoading(true)
-    try {
-      let mediaData = editMode ? services.find(s => s._id === selectedId).media : []
-      if (file) {
-        const uploaded = await uploadMedia(file)
-        if (uploaded) mediaData = [uploaded]
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  setLoading(true);
+  try {
+    const currentService = services.find(s => s._id === selectedId);
+    let mediaData = editMode ? currentService.media : [];
+
+    // Jodi notun file select kora hoy, tobei update hobe
+    if (file) {
+      const uploaded = await uploadMedia(file);
+      if (uploaded) {
+        mediaData = [uploaded]; // Update with new file
       }
-      const url = editMode ? `${process.env.NEXT_PUBLIC_API_URL}/services/${selectedId}` : `${process.env.NEXT_PUBLIC_API_URL}/services`
-      const method = editMode ? 'PUT' : 'POST'
-      const res = await fetch(url, {
-        method,
-        headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${localStorage.getItem('adminToken')}` },
-        body: JSON.stringify({ ...formData, media: mediaData })
-      })
-      if (res.ok) { setShowModal(false); fetchServices(); setFile(null); }
-    } catch (err) { console.error(err) } finally { setLoading(false) }
+    }
+
+    const url = editMode ? `${process.env.NEXT_PUBLIC_API_URL}/services/${selectedId}` : `${process.env.NEXT_PUBLIC_API_URL}/services`;
+    const method = editMode ? 'PUT' : 'POST';
+
+    const res = await fetch(url, {
+      method,
+      headers: { 
+        'Content-Type': 'application/json', 
+        'Authorization': `Bearer ${localStorage.getItem('adminToken')}` 
+      },
+      body: JSON.stringify({ ...formData, media: mediaData })
+    });
+
+    if (res.ok) { 
+      setShowModal(false); 
+      fetchServices(); 
+      setFile(null); 
+    }
+  } catch (err) { 
+    console.error("Submission error:", err); 
+  } finally { 
+    setLoading(false); 
   }
+};
 
   const handleDelete = async (id) => {
     if (window.confirm("ARE_YOU_SURE_TO_TERMINATE_THIS_SERVICE?")) {
