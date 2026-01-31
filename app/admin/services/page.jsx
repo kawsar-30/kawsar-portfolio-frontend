@@ -61,16 +61,17 @@ export default function AdminServices() {
 const handleSubmit = async (e) => {
   e.preventDefault();
   setLoading(true);
+  
   try {
-    const currentService = services.find(s => s._id === selectedId);
-    let mediaData = editMode ? currentService.media : [];
-
-    // Jodi notun file select kora hoy, tobei update hobe
+    const formDataToSend = new FormData();
+    formDataToSend.append('title', formData.title);
+    formDataToSend.append('description', formData.description);
+    formDataToSend.append('category', formData.category);
+    formDataToSend.append('featured', formData.featured);
+    
+    // 🔥 'media' name e pathate hobe jate route-er upload.single('media') er sathe mile
     if (file) {
-      const uploaded = await uploadMedia(file);
-      if (uploaded) {
-        mediaData = [uploaded]; // Update with new file
-      }
+      formDataToSend.append('media', file);
     }
 
     const url = editMode ? `${process.env.NEXT_PUBLIC_API_URL}/services/${selectedId}` : `${process.env.NEXT_PUBLIC_API_URL}/services`;
@@ -79,10 +80,10 @@ const handleSubmit = async (e) => {
     const res = await fetch(url, {
       method,
       headers: { 
-        'Content-Type': 'application/json', 
         'Authorization': `Bearer ${localStorage.getItem('adminToken')}` 
+        // ❌ FormData-te 'Content-Type' header dewa jabe na, browser auto nibe
       },
-      body: JSON.stringify({ ...formData, media: mediaData })
+      body: formDataToSend
     });
 
     if (res.ok) { 
