@@ -88,7 +88,7 @@ export default function Certifications() {
             whileInView={{ opacity: 1, y: 0 }}
             className="text-3xl md:text-4xl font-black text-[#00f6ff] uppercase tracking-widest italic"
           >
-            Certifications_
+            Certifications
           </motion.h2>
           
           <motion.div 
