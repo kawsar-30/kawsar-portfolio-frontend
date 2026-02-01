@@ -132,7 +132,7 @@ export default function Hero() {
                <div className="flex flex-row gap-3 md:gap-4 pt-2">
                   {/* Resume Button - Google Drive Link */}
                   <a 
-                    href="https://drive.google.com/file/d/1gLAqI9pst88Kiy5n-iQG2HzPPTfPXrKP/view?usp=drive_link" 
+                    href="https://drive.google.com/file/d/1gLAqI9pst88Kiy5n-iQG2HzPPTfPXrKP/view?usp=sharing" 
                     target="_blank" 
                     rel="noopener noreferrer"
                   >
