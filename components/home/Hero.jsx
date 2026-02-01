@@ -130,16 +130,16 @@ export default function Hero() {
                </p>
 
                <div className="flex flex-row gap-3 md:gap-4 pt-2">
-                  {/* Resume Button - Google Drive Link */}
-                 <a 
-  href="https://drive.google.com/file/d/1gLAqI9pst88Kiy5n-iQG2HzPPTfPXrKP/view?usp=sharing" 
-  target="_blank" 
-  rel="noopener noreferrer"
->
-  <button className="border border-[#00f6ff] text-[#00f6ff] px-5 md:px-8 py-2 md:py-2.5 rounded-none font-bold text-[10px] md:text-sm hover:bg-[#00f6ff] hover:text-[#0b0f14] transition-all bg-[#0b0f14]/50">
-    ⬇ RESUME
-  </button>
-</a>
+                  {/* Resume Button - Using the working link (2nd link) */}
+                  <a 
+                    href="https://drive.google.com/file/d/1gLAqI9pst88Kiy5n-iQG2HzPPTfPXrKP/view?usp=sharing" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                  >
+                    <button className="border border-[#00f6ff] text-[#00f6ff] px-5 md:px-8 py-2 md:py-2.5 rounded-none font-bold text-[10px] md:text-sm hover:bg-[#00f6ff] hover:text-[#0b0f14] transition-all bg-[#0b0f14]/50">
+                      ⬇ RESUME
+                    </button>
+                  </a>
                   
                   {/* Contact Button - Scrolls to #contact section */}
                   <a href="#contact">
