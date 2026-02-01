@@ -73,7 +73,7 @@ export default function Hero() {
   return (
     <section id='home' className="relative min-h-screen w-full flex items-center justify-center px-4 md:px-6 py-10 bg-[#0b0f14] overflow-hidden">
       
-      {/* --- Cyber Background --- */}
+      {/* Cyber Background Animation */}
       <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
         {hackerElements.map((text, index) => {
           const leftPosition = Math.random() * 90;
@@ -97,22 +97,20 @@ export default function Hero() {
             </motion.span>
           );
         })}
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#00ff8803] to-transparent"></div>
       </div>
 
-      {/* --- Main Layout Container --- */}
       <div className="relative z-10 max-w-6xl w-full flex flex-col-reverse md:flex-row items-center justify-between gap-y-12 md:gap-x-8">
         
-        {/* Left: Content */}
+        {/* Content Section */}
         <div className="w-full md:w-3/5 flex flex-col space-y-3 md:space-y-5 text-left">
-          <div className="text-[#00f6ff] text-xs md:text-lg font-bold tracking-[0.3em] min-h-[20px] drop-shadow-[0_0_8px_rgba(0,246,255,0.4)]">
+          <div className="text-[#00f6ff] text-xs md:text-lg font-bold tracking-[0.3em] min-h-[20px]">
             {line1}{step === 0 && <span className="animate-pulse">_</span>}
           </div>
 
           <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black leading-[0.85] uppercase tracking-tighter text-white">
             <span className="block">{line2}{step === 1 && <span className="text-[#00f6ff]">|</span>}</span>
             <span className="block">{line3}{step === 2 && <span className="text-[#00f6ff]">|</span>}</span>
-            <span className="text-[#00f6ff] block drop-shadow-[0_0_12px_rgba(0,246,255,0.3)]">
+            <span className="text-[#00f6ff] block">
               {line4}{step === 3 && <span>|</span>}
             </span>
           </h1>
@@ -121,7 +119,7 @@ export default function Hero() {
             <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="space-y-6">
                <div className="flex items-center flex-wrap gap-2 text-base sm:text-xl md:text-2xl font-bold mt-2">
                  <span className="shrink-0 text-[#d0d6e0] opacity-80 font-normal text-xs md:text-lg italic">root@kawsar:~#</span>
-                 <span className="text-[#00ff88] drop-shadow-[0_0_8px_rgba(0,255,136,0.4)]">{currentRoleText}</span>
+                 <span className="text-[#00ff88]">{currentRoleText}</span>
                  <span className="w-2 md:w-2.5 h-5 md:h-6 bg-[#00ff88] animate-pulse"></span>
                </div>
 
@@ -130,7 +128,6 @@ export default function Hero() {
                </p>
 
                <div className="flex flex-row gap-3 md:gap-4 pt-2">
-                  {/* Resume Button - Using the working link (2nd link) */}
                   <a 
                     href="https://drive.google.com/file/d/1gLAqI9pst88Kiy5n-iQG2HzPPTfPXrKP/view?usp=sharing" 
                     target="_blank" 
@@ -141,7 +138,6 @@ export default function Hero() {
                     </button>
                   </a>
                   
-                  {/* Contact Button - Scrolls to #contact section */}
                   <a href="#contact">
                     <button className="border border-[#00ff88] text-[#00ff88] px-5 md:px-8 py-2 md:py-2.5 rounded-none font-bold text-[10px] md:text-sm hover:bg-[#00ff88] hover:text-[#0b0f14] transition-all bg-[#0b0f14]/50">
                       ✉ CONTACT
@@ -152,35 +148,14 @@ export default function Hero() {
           )}
         </div>
 
-        {/* Right: Profile Image */}
+        {/* Profile Image Section */}
         <div className="w-full md:w-auto flex justify-center relative">
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            className="relative w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-[380px] lg:h-[380px]"
-          >
-            {/* Outer Glows */}
-            <div className="absolute inset-0 bg-[#00ff8808] blur-[80px] rounded-full"></div>
-            <div className="absolute -inset-2 md:-inset-4 border border-[#00f6ff15] rounded-full animate-[spin_30s_linear_infinite] border-dashed"></div>
-
-            {/* Image Wrapper */}
+          <motion.div initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} className="relative w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-[380px] lg:h-[380px]">
             <div className="relative w-full h-full rounded-full overflow-hidden border-2 md:border-4 border-[#00ff8830] z-10 bg-[#0b0f14]">
-              <Image 
-                src={profilePic} 
-                alt="MD KAWSAR HOSSAIN" 
-                fill 
-                className="object-cover"
-                priority 
-              />
+              <Image src={profilePic} alt="MD KAWSAR HOSSAIN" fill className="object-cover" priority />
             </div>
-
-            {/* Badges */}
-            <div className="absolute -top-1 -right-1 md:-top-2 md:-right-2 bg-[#0b0f14] border border-[#00f6ff] px-2 py-0.5 text-[7px] md:text-[10px] text-[#00f6ff] z-20 font-bold shadow-[0_0_10px_rgba(0,246,255,0.3)]">
-              SECURED
-            </div>
-            <div className="absolute -bottom-1 -left-1 md:-bottom-2 md:-left-2 bg-[#0b0f14] border border-[#00ff88] px-2 py-0.5 text-[7px] md:text-[10px] text-[#00ff88] z-20 font-bold shadow-[0_0_10px_rgba(0,255,136,0.3)]">
-              ACTIVE
-            </div>
+            <div className="absolute -top-1 -right-1 bg-[#0b0f14] border border-[#00f6ff] px-2 py-0.5 text-[7px] md:text-[10px] text-[#00f6ff] z-20 font-bold">SECURED</div>
+            <div className="absolute -bottom-1 -left-1 bg-[#0b0f14] border border-[#00ff88] px-2 py-0.5 text-[7px] md:text-[10px] text-[#00ff88] z-20 font-bold">ACTIVE</div>
           </motion.div>
         </div>
       </div>
